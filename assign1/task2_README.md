@@ -2,9 +2,8 @@
 
 This program implements the **Extended Euclidean Algorithm** to compute the greatest common divisor (GCD) of two integers, while also finding integers `x` and `y` that satisfy the equation:
 
-\[
-a \cdot x + b \cdot y = \gcd(a, b)
-\]
+a * x + b * y = gcd(a, b)
+
 
 ---
 
