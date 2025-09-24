@@ -1,5 +1,5 @@
 def create_matrix(keyword):
-    """Create a 5x5 Playfair cipher matrix from the keyword"""
+    #make a 5x5 matrix
     key = keyword.upper().replace(" ", "").replace("J", "I")  
     
     check = set()
