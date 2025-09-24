@@ -24,10 +24,15 @@ def main():
     gcd_val, x, y = gcd(a, b)
 
     print(f"gcd({a}, {b}) = {gcd_val}")
-    print(f"Integer x = {x}")
-    print(f"Integer y = {y}")
-    print(f"Such that: {a}*{x} + {b}*{y} = {gcd_val}")
-    print(f"Verification: {a}*{x} + {b}*{y} = {a*x + b*y}")
+    print(f"x = {x}")
+    print(f"y = {y}")
+    print(f"{a}*{x} + {b}*{y} = {gcd_val}")
+
+    if gcd_val == 1:
+        mod_inv = y % a
+        print(f"Modular multiplicative inverse of {b} mod {a} is {mod_inv}")
+    else:
+        print(f"No modular inverse exists because gcd({a},{b}) = {gcd_val}")
 
 if __name__ == "__main__":
     main()
