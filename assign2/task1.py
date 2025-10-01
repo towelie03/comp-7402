@@ -52,18 +52,17 @@ def feistel_function(R, subkey):
     permuted = permute(sboxed, P)
     return permuted
 
-def des_encrypt_block(plaintext_hex, subkeys):
+def des_encrypt_block(plaintext_hex, subkeys, rounds=16):
     if len(plaintext_hex) != 16:
         raise ValueError("Plaintext must be 16 hex chars (64 bits).")
     bits = hex_to_bitlist(plaintext_hex, 64)
     bits = permute(bits, IP)
     L = bits[:32]
     R = bits[32:]
-    for i in range(16):
+    for i in range(rounds):
         f_out = feistel_function(R, subkeys[i])
         newR = xor(L, f_out)
-        L = R
-        R = newR
+        L, R = R, newR
     preoutput = R + L
     cipher_bits = permute(preoutput, FP)
     return bitlist_to_hex(cipher_bits)
